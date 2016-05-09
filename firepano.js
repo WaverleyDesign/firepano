@@ -1,5 +1,5 @@
 var spinner = new Spinner({color: '#ddd'});
-var firebaseRef = 'https://firepano.firebaseio.com/';
+var firebaseRef = 'https://testingwaverley.firebaseio.com/';
 
 function handleFileSelect(evt) {
   var f = evt.target.files[0];
@@ -12,7 +12,7 @@ function handleFileSelect(evt) {
       var f = new Firebase(firebaseRef + 'pano/' + hash + '/filePayload');
       spinner.spin(document.getElementById('spin'));
       // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-      f.set(filePayload, function() { 
+      f.set(filePayload, function() {
         spinner.stop();
         document.getElementById("pano").src = e.target.result;
         $('#file-upload').hide();
